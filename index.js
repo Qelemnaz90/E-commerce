@@ -141,5 +141,21 @@ previous.addEventListener('click', function(){
 
 
 
+searchInput = document.querySelector('.form-control');
+containers = document.querySelectorAll('.container1 .card');
+
+searchInput.addEventListener('keyup', function() {
+    next.style.display = 'none'
+    previous.style.display = 'none'
+    const searchText = this.value.trim().toLowerCase();
+    containers.forEach(card => {
+        const cardText = card.textContent.trim().toLowerCase();
+        if (cardText.includes(searchText)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
 
 
